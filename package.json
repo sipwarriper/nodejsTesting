@@ -1,0 +1,19 @@
+{
+  "name": "nodejstesting",
+  "version": "1.0.0",
+  "description": "training with a tutorial ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sipwarriper/nodejsTesting.git"
+  },
+  "author": "sipwarriper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sipwarriper/nodejsTesting/issues"
+  },
+  "homepage": "https://github.com/sipwarriper/nodejsTesting#readme"
+}
