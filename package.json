@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sipwarriper/nodejsTesting/issues"
   },
-  "homepage": "https://github.com/sipwarriper/nodejsTesting#readme"
+  "homepage": "https://github.com/sipwarriper/nodejsTesting#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
