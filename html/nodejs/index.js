@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000; //escoltem port donat per env o usem 3000
 app.use(bodyParser.urlencoded({ extended: false})) //afegim middlewhere
 app.use(bodyParser.json()) //afegim middlewhere
 
-app.get('/',(req, rest)=>{
+app.get('/',(req, res)=>{
     res.send({message: 'Hola mundo!'})
 })
 
