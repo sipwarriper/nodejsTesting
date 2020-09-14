@@ -17,7 +17,9 @@ app.use(bodyParser.json()) //afegim middlewhere
 app.get('/:name',(req, res)=>{
     res.send({message: `Hola ${req.params.name}!`})
 })
-
+app.get('/',(req, res)=>{
+    res.send({message: `Hola!`})
+})
 
 app.listen(port, () =>{
     console.log(`API REST corriendo en http://nodejs.sipwarriper.com:${port}`)
