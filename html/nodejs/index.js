@@ -18,7 +18,7 @@ app.get('/:name',(req, res)=>{
     res.send({message: `Hola ${req.params.name}!`})
 })
 app.get('/',(req, res)=>{
-    res.send({message: `Hola!`})
+    res.send({message: `Hola!${req.query.nombre}`})
 })
 
 app.listen(port, () =>{
