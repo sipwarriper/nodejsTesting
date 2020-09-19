@@ -1,10 +1,9 @@
 'use strict'
 //nodemon --> libreria de desarrollo para que los cambios que se hagan en entorne de desarrollo se vean aplicados sin tener q reiniciar el servidor cada vez
-
-
+const dotenv = require('dotenv').config();
 const express = require('express') //importa express
 const bodyParser = require('body-parser'); //body-parser es un framework per parsejar info de crides http... l'usarem com a middlewhere de epxress
-const mongo = require('mongoose')
+const mongoose = require('mongoose');
 
 //creem el servidor
 const app = express(); //crida express
@@ -46,9 +45,16 @@ app.delete('/api/product/:productId', (req, res) =>{
 app.get('/',(req, res)=>{
     res.send({message: `Hola, ${req.query.nombre}!`})
 });
+const options = {
+    user: process.env.DB_USERNAME,
+    pass: process.env.DB_PWD,
+    useNewUrlParser: true
+};
+const ConnectionString = `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}?authSource=admin`;
 
-mongo.connect('mogodb://51.178.136.251:27017/nodejsTesting', (err, res)=>{
+mongoose.connect(ConnectionString, options, (err,env)=>{
     if (err) {
+        console.log(ConnectionString)
         console.log('Error al conectar a la base de datos');
         throw err;
     }
