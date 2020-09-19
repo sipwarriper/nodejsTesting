@@ -5,7 +5,7 @@ const express = require('express') //importa express
 const bodyParser = require('body-parser'); //body-parser es un framework per parsejar info de crides http... l'usarem com a middlewhere de epxress
 const mongoose = require('mongoose');
 
-const Models = require('./models/ModelCollection.js');
+const Product = require('./models/Product.js');
 
 
 //creem el servidor
@@ -34,7 +34,7 @@ app.post('/api/product', (req,res)=>{
     console.log('POST /api/product');
     console.log(req.body);
 
-    let product = new Models.Product();
+    let product = new Product();
     product.name = req.body.name;
     product.picture = req.picture;
     product.price = req.price;
