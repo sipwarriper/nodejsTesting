@@ -3,8 +3,8 @@
 
 
 const express = require('express') //importa express
-
 const bodyParser = require('body-parser'); //body-parser es un framework per parsejar info de crides http... l'usarem com a middlewhere de epxress
+const mongo = require('mongoose')
 
 //creem el servidor
 const app = express(); //crida express
@@ -18,15 +18,7 @@ app.get('/:name',(req, res)=>{
     res.send({message: `Hola ${req.params.name}!`})
 });
 
-app.get('/',(req, res)=>{
-    res.send({message: `Hola, ${req.query.nombre}!`})
-});
 
-app.listen(port, () =>{
-    console.log(`API REST corriendo en http://nodejs.sipwarriper.com:${port}`)
-});
-
-//end testing
 
 app.get('/api/product', (req, res) =>{
 
@@ -46,5 +38,24 @@ app.put('/api/product/:productId', (req, res) =>{
 
 app.delete('/api/product/:productId', (req, res) =>{
 
+});
+
+
+
+
+app.get('/',(req, res)=>{
+    res.send({message: `Hola, ${req.query.nombre}!`})
+});
+
+mongo.connect('mogodb://51.178.136.251:27017/nodejsTesting', (err, res)=>{
+    if (err) {
+        console.log('Error al conectar a la base de datos');
+        throw err;
+    }
+    console.log('Conexión a la base de datos establecida...')
+
+    app.listen(port, () =>{
+        console.log(`API REST corriendo en http://nodejs.sipwarriper.com:${port}`)
+    });
 });
 
