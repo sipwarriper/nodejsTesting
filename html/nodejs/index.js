@@ -36,10 +36,10 @@ app.post('/api/product', (req,res)=>{
 
     let product = new Product();
     product.name = req.body.name;
-    product.picture = req.picture;
-    product.price = req.price;
-    product.category = req.category;
-    product.description = req.description;
+    product.picture = req.body.picture;
+    product.price = req.body.price;
+    product.category = req.body.category;
+    product.description = req.body.description;
 
     product.save((err, productStored)=>{
         if(err)
