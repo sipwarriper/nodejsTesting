@@ -5,6 +5,9 @@ const express = require('express') //importa express
 const bodyParser = require('body-parser'); //body-parser es un framework per parsejar info de crides http... l'usarem com a middlewhere de epxress
 const mongoose = require('mongoose');
 
+const Models = require('models/ModelCollection.js');
+
+
 //creem el servidor
 const app = express(); //crida express
 const port = process.env.PORT || 3000; //escoltem port donat per env o usem 3000 per defecte
@@ -28,7 +31,21 @@ app.get('/api/product/:productId', (req, res) =>{
 });
 
 app.post('/api/product', (req,res)=>{
+    console.log('POST /api/product');
+    console.log(req.body);
 
+    let product = new Models.Product();
+    product.name = req.body.name;
+    product.picture = req.picture;
+    product.price = req.price;
+    product.category = req.category;
+    product.description = req.description;
+
+    product.save((err, productStored)=>{
+        if(err)
+            res.status(500).send({message: `Error al salvar el producto en la BDD: ${err}` , err: err});
+        res.status(200).send({product: productStored});
+    });
 });
 
 app.put('/api/product/:productId', (req, res) =>{
