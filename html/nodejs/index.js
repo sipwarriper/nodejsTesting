@@ -1,4 +1,5 @@
 'use strict'
+
 //nodemon --> libreria de desarrollo para que los cambios que se hagan en entorne de desarrollo se vean aplicados sin tener q reiniciar el servidor cada vez
 const dotenv = require('dotenv').config();
 const express = require('express') //importa express
